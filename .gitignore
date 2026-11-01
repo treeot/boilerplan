@@ -1,0 +1,17 @@
+# Maven build output
+target/
+
+# IDE files
+.idea/
+*.iml
+.vscode/
+
+# Operating-system files
+.DS_Store
+
+# Java compiler artifacts
+*.class
+
+
+# Local non-Maven compile output
+out/
