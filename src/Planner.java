@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Planner {
@@ -10,5 +11,11 @@ public class Planner {
 
     public List<Assignment> getAssignments() {
         return assignments;
+    }
+
+    public List<Assignment> getSortedByDueDate() {
+        List<Assignment> sorted = new ArrayList<>(assignments);
+        sorted.sort(Comparator.comparing(Assignment::getDueDate));
+        return sorted;
     }
 }

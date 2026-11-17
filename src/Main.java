@@ -6,10 +6,11 @@ void main() {
     Planner planner = new Planner();
     planner.add(new Assignment("Math HW", LocalDate.of(2026, 11, 10)));
     planner.add(new Assignment("English Essay", LocalDate.of(2026, 11, 20)));
+    planner.add(new Assignment("Chem Lab", LocalDate.of(2026, 11, 3)));
 
     IO.println("");
-    IO.println("Your assignments:");
-    for (Assignment a : planner.getAssignments()) {
+    IO.println("Your assignments, soonest first:");
+    for (Assignment a : planner.getSortedByDueDate()) {
         IO.println("- " + a);
     }
 }
