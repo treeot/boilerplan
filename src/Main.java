@@ -13,4 +13,12 @@ void main() {
     for (Assignment a : planner.getSortedByDueDate()) {
         IO.println("- " + a);
     }
+
+    planner.markDone(0);
+
+    IO.println("");
+    IO.println("After finishing Math HW:");
+    for (Assignment a : planner.getSortedByDueDate()) {
+        IO.println("- " + a);
+    }
 }

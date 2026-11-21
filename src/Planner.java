@@ -13,6 +13,10 @@ public class Planner {
         return assignments;
     }
 
+    public void markDone(int index) {
+        assignments.get(index).markDone();
+    }
+
     public List<Assignment> getSortedByDueDate() {
         List<Assignment> sorted = new ArrayList<>(assignments);
         sorted.sort(Comparator.comparing(Assignment::getDueDate));

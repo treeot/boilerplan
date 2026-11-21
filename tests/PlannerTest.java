@@ -26,6 +26,14 @@ void main() {
     check("middle due date comes second", sorted.get(1).getName().equals("Mid Paper"));
     check("latest due date comes last", sorted.get(2).getName().equals("Late Lab"));
     check("sorting does not change the original order", sortTest.getAssignments().get(0).getName().equals("Late Lab"));
+
+    Planner doneTest = new Planner();
+    doneTest.add(new Assignment("Reading", LocalDate.of(2026, 11, 8)));
+    doneTest.add(new Assignment("Problem Set", LocalDate.of(2026, 11, 12)));
+
+    doneTest.markDone(1);
+    check("marking done flips the right assignment", doneTest.getAssignments().get(1).isDone());
+    check("marking done leaves the others alone", doneTest.getAssignments().get(0).isDone() == false);
 }
 
 void check(String label, boolean passed) {
