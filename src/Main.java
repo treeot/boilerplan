@@ -1,6 +1,6 @@
 import java.time.LocalDate;
 
-void main() {
+void main() throws Exception {
     IO.println("Welcome to BoilerPlan, an assignment tracker.");
 
     Planner planner = new Planner();
@@ -19,6 +19,18 @@ void main() {
     IO.println("");
     IO.println("After finishing Math HW:");
     for (Assignment a : planner.getSortedByDueDate()) {
+        IO.println("- " + a);
+    }
+
+    Storage.save(planner.getAssignments(), "assignments.csv");
+    Planner reopened = new Planner();
+    for (Assignment a : Storage.load("assignments.csv")) {
+        reopened.add(a);
+    }
+
+    IO.println("");
+    IO.println("Loaded back from assignments.csv:");
+    for (Assignment a : reopened.getSortedByDueDate()) {
         IO.println("- " + a);
     }
 }
